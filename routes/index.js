@@ -1,6 +1,6 @@
-const express = require('express');
-const _ = express.Router();
-const API = require('./api')
-_.use('/api', API)
+const express = require('express')
+const _ =  express.Router();
+const APIDIR = require('./api')
+_.use('/', APIDIR)
 
 module.exports = _;

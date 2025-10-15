@@ -1,0 +1,14 @@
+http://localhost:8000/api/v1/
+
+ -----admin endpoint-------
+http://localhost:8000/api/v1/admin/login
+http://localhost:8000/api/v1/admin/registration
+http://localhost:8000/api/v1/check-admin
+http://localhost:8000/api/v1/login
+http://localhost:8000/api/v1/registration
+http://localhost:8000/api/v1/verification
+ -----category endpoint-------
+http://localhost:8000/api/v1/category/dashboard/addcategories
+http://localhost:8000/api/v1/category/dashboard/addsubcategories
+ -----product endpoint-------
+http://localhost:8000/api/v1/product/addproduct
