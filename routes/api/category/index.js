@@ -3,12 +3,17 @@ const addCategoryController = require('../../../controllers/categories/addCatego
 const addSubCategoryController = require('../../../controllers/categories/addSubCategoryController');
 const getCategoryController = require('../../../controllers/categories/getCategoryController');
 const getSubcategoryController = require('../../../controllers/categories/getSubcategoryController');
+const viewSubcategoryController = require('../../../controllers/categories/viewSubcategoryController');
+const deleteSubcategoryController = require('../../../controllers/categories/deleteSubcategoryController');
+const deleteCategoryController = require('../../../controllers/categories/deleteCategoryController');
 const _ =  express.Router();
 
-_.post('/dashboard/addcategories', addCategoryController)
-_.post('/dashboard/addsubcategories', addSubCategoryController)
+_.post('/addcategories', addCategoryController)
+_.post('/addsubcategories', addSubCategoryController)
 _.get('/allcategory', getCategoryController)
-_.get('/:id/subcategory', getSubcategoryController)
-
+_.get('/viewsubcategory', getSubcategoryController)
+_.get("/viewsubcategories", viewSubcategoryController);
+_.delete("/deletecategory/:id", deleteCategoryController);
+_.delete("/deletesubcategory/:id", deleteSubcategoryController);
 
 module.exports = _;

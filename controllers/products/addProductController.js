@@ -68,8 +68,11 @@ const addProductController = async (req, res) => {
       thumbnail,
     });
 
-    await product.save();
-
+// Only include subCategoryId if it's valid
+if (subCategoryId && mongoose.Types.ObjectId.isValid(subCategoryId)) {
+  product.subCategoryId = subCategoryId;
+}
+await product.save();
     console.log("req.body:", req.body);
     console.log("req.files:", req.files);
 

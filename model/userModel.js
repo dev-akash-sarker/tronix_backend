@@ -6,6 +6,13 @@ const userSchema = new Schema({
   lastName: String,
   email: String,
   password: String,
+  address: String,
+  contact: Number,
+
+  country: String,
+  city: String,
+  zipcode: String,
+
   // isVerified: Boolean,
   emailVerified: {
     type: Boolean,
@@ -15,8 +22,8 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ["Admin", "Marchent", "User"],
-    default: "User"
-  }
+    default: "User",
+  },
 });
 
-module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model("User", userSchema);

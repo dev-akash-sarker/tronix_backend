@@ -2,10 +2,9 @@ const subcategory = require("../../model/subcategory");
 
 const getSubcategoryController = async (req, res) => {
   try {
-    const categoryId = req.params.id;
 
     // Find all categories where parent = parentId
-    const subcategories = await subcategory.find({ categoryId: categoryId });
+    const subcategories = await subcategory.find();
 
     res.status(200).json(subcategories);
   } catch (err) {
