@@ -9,7 +9,7 @@ const port = process.env.PORT
 
 
 app.use(cors({
-  origin: ["http://localhost:3001" , "http://localhost:3000"], // your Next.js frontend
+  origin: ["https://ecommercelab.netlify.app" , "http://localhost:3000"], // your Next.js frontend
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   credentials: true
 }));
