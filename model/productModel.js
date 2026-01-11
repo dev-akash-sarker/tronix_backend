@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const reviewSchema = require("./reviewSchema");
 
 const productSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -28,7 +29,7 @@ const productSchema = new mongoose.Schema({
   brand: String,
   sku: String,
   weight: Number,
-  sold: {type: Number , default: 0},
+  sold: { type: Number, default: 0 },
 
   // Physical details
   dimensions: {
@@ -41,7 +42,10 @@ const productSchema = new mongoose.Schema({
   warrantyInformation: String,
   shippingInformation: String,
   availabilityStatus: { type: String, default: "In stock" },
-  Reviews: { type: Number, default: 0 },
+  reviews: {
+    type: [reviewSchema],
+    default: [],
+  },
   returnPolicy: String,
   minimumOrderQuantity: { type: Number, default: 1 },
 

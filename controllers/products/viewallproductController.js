@@ -26,6 +26,11 @@ const viewallproductController = async (req, res) => {
         _id: 1,
       }
     );
+
+    const av = allproducts.map((product) => product.reviews);
+    console.log( "boro reviw",av);
+
+
     const formattedUsers = allproducts.map((product) => ({
       title: product.title,
       description: product.description,
@@ -40,7 +45,7 @@ const viewallproductController = async (req, res) => {
       tags: product.tags,
       brand: product.brand,
       sku: product.sku,
-      reviews: product.reviews,
+      reviews: product.reviews || [],
       meta: product.meta,
       images: product.images,
       thumbnail: product.thumbnail,
