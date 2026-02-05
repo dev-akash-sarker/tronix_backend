@@ -7,11 +7,6 @@ const getPromotionController = async (req, res) => {
       .populate("products", "title price discountPercentage") // populate product details
       .sort({ createdAt: -1 });
 
-//    const promotion_product = await productModel.find({
-//   _id: { $in: promotions.products.map(p => p.$oid) }
-// });
-console.log(promotions)
-
     res.status(200).json(promotions);
   } catch (error) {
     console.error(error);

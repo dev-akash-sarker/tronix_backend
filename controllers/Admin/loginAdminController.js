@@ -6,21 +6,22 @@ const loginAdminController = async (req, res) => {
   try {
     const { email, password } = req.body;
     const admin = await Admin.findOne({ email });
-    console.log("abc",admin)
+    console.log("abc", admin);
     if (!admin) {
-      res.status(404).json({ message: "Admin not found" });
+      return res.status(404).json({ message: "Admin not found" });
     }
 
     const isMatch = await bcrypt.compare(password, admin.password);
-    if(!isMatch){
-      return res.status(401).json({message: "Invalid email or password"})
+    console.log("ismatch",isMatch)
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
     }
 
     // generate jwt
-    const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: admin._id , role: "admin"}, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    res.json({ token , message: "Login successful" });
+    res.json({ token, message: "Login successful" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

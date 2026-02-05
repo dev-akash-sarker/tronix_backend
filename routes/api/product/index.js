@@ -1,5 +1,5 @@
 const express = require('express');
-const { parser } = require('../../../config/cloudinary');
+const { productParser } = require('../../../config/cloudinary');
 const AddProductController = require('../../../controllers/products/addProductController');
 const viewallproductController = require('../../../controllers/products/viewallproductController');
 const viewproductController = require('../../../controllers/products/viewproductController');
@@ -13,15 +13,15 @@ const _ =  express.Router();
 
 _.use(express.json())
 _.use(express.urlencoded({ extended: true }));
-_.post('/addproduct', parser.array("images", 5), AddProductController)
+_.post('/addproduct', productParser.array("images", 5), AddProductController)
 _.post('/add-review', productReviewController)
-_.post('/image/id/:productId',parser.array("file", 5), uploadproductimageController)
+_.post('/image/id/:productId',productParser.array("file", 5), uploadproductimageController)
 _.get('/viewproducts', viewallproductController)
 _.get('/:id', viewproductController)
 _.delete('/image/:publicId', deleteProductImages)
 _.delete('/delete', deleteImage)
 _.delete('/deleteproduct/:id', deleteProductController)
-_.put('/update/:productId',parser.array("images", 5), updateProductController)
+_.put('/update/:productId',productParser.array("images", 5), updateProductController)
 
 
 module.exports = _;
