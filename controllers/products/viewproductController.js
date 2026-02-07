@@ -47,7 +47,7 @@ const viewproductController = async (req, res) => {
         meta: product.meta,
         images: product.images,
         thumbnail: product.thumbnail,
-        _id: product._id.toString(),
+        id: product._id.toString(),
       }));
     });
 
