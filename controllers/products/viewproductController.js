@@ -51,7 +51,7 @@ const viewproductController = async (req, res) => {
       }));
     });
 
-    const product = products.find((p) => p._id === productId);
+    const product = products.find((p) => p.id === productId);
 
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
